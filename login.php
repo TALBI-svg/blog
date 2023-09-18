@@ -51,15 +51,22 @@ if(isset($_POST['loginBtn'])){
                 $id=$row['id'];
                 $hashed_password=$row['password'];
                 $username=$row['username'];
+                $status=$row['status'];
 
                 if(password_verify($password, $hashed_password)){
-                    $_SESSION['id']=$id;
-                    $_SESSION['username']=$username;
+                    if($status==='disactive'){
+                        $url="<a href='contact.php'>Contact</a>";
+                        $result=falshMessage('You can\'t login your account hase been blocked contact support ! '.$url);
+                    }else{
 
-                    if ($remeber == "yes"){
-                        rememberMe($id);
+                        $_SESSION['id']=$id;
+                        $_SESSION['username']=$username;
+                        
+                        if ($remeber == "yes"){
+                            rememberMe($id);
+                        }
+                        redirect('index');
                     }
-                    redirect('index');
                 }else{
                     $result=falshMessage('Invalid password or username');
                 }

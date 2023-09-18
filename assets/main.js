@@ -23,26 +23,18 @@ updateBtn.forEach(function (ele){
     })
 })
 
+// hideTable
+// whenSearch
+// whenSearchInpt
+// form
 
-
-// let validate_Email_Inpt=document.querySelector('#email')
-// validate_Email_Inpt.addEventListener('change',function(){
-//     let email=validate_Email_Inpt.value 
-//     let admin_regex=/^(\w{5,10}.admin)@(gmail|email|hotmail|outlook).(com|ma|fr|net)$/ig
-//     let manager_regex=/^(\w{5,10}.manager)@(gmail|email|hotmail|outlook).(com|ma|fr|net)$/ig
-//     let user_regex=/^(\w{5,10})@(gmail|email|hotmail|outlook).(com|ma|fr|net)$/ig
-    
-//     if(email.match(admin_regex)){
-//         console.log('admin redirection')
-
-//     }else if(email.match(manager_regex)){
-
-//         console.log('manager redirection')
-
-//     }else if(email.match(user_regex)){
-
-//         console.log('user redirection')
-//     }else{
-//         console.log('email form not valide!')
-//     }
-// })
+let searchInpt=document.querySelector('#whenSearchInpt')
+let form=document.querySelector("#sendRequestForm")
+form.addEventListener('submit', function(){
+    // if(searchInpt.value!==""){
+    //     return true
+    // }else{
+    //     return false
+    // }
+    console.log('ok')
+})

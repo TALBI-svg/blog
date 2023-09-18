@@ -1,8 +1,8 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap'); */
 
 @font-face{
-    font-family: 'Poppins', sans-serif;
-    src: url("./icons/fonts/Poppins-Black.ttf");
+    font-family: 'Poppins';
+    src: url("./icons/fonts/Poppins-Light.ttf");
 }
 *{
     padding: 0px;
@@ -778,3 +778,46 @@ label:focus,
     font-size: 12px;
     font-weight: normal;
 }
+
+/* -----------------DASHBOARD PAGE----------------- */
+.DASHBOARD .row .content-area{
+    height: 90vh;
+}
+.DASHBOARD .row .col-12 nav .nav-tabs .nav-link{
+    color: #000;
+    border: 1px solid #fff;
+}
+.DASHBOARD .row .col-12 nav .nav-tabs .nav-link:hover{
+    border: 1px solid #fff;
+}
+.DASHBOARD .row .col-12 nav .nav-tabs .active{
+    background: #f2f2f2;
+    border: 1px solid #fff;
+    color: #000;
+    border-radius: 5px;
+
+}
+.DASHBOARD .row .col-12 .tab-content .tab-pane .table tbody tr .users-image img{
+    height: 35px;
+    width: 35px;
+    max-width: 35px;
+}
+
+/* -----------------MOREOPTIONS PAGE----------------- */
+.MOREOPTIONS .row .content-area{
+    height: 90vh;
+}
+.MOREOPTIONS .row .col-12 nav .nav-tabs .nav-link{
+    color: #000;
+    border: 1px solid #fff;
+}
+.MOREOPTIONS .row .col-12 nav .nav-tabs .nav-link:hover{
+    border: 1px solid #fff;
+}
+.MOREOPTIONS .row .col-12 nav .nav-tabs .active{
+    background: #f2f2f2;
+    border: 1px solid #fff;
+    color: #000;
+    border-radius: 5px;
+}
+

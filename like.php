@@ -45,7 +45,7 @@ if(isset($_SESSION['id'])){
                             $noti_sender=$like_owner;
                             $noti_sender_img=$like_owner_img;
                             $noti_receiver=$user_post;
-                            Noti($connection,$event,$content,$noti_sender,$noti_sender_img,$noti_receiver,$post_id,$post_title);   
+                            NotiFromUser($connection,$event,$content,$noti_sender,$noti_sender_img,$noti_receiver,$post_id,$post_title);   
                                                      
                         }
                     } catch (PDOException $ex) {

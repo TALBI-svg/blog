@@ -219,6 +219,18 @@ include_once 'resources/utilities.php';
                                                           <?php 
                                                           if($_SERVER['REQUEST_METHOD'] === "GET"){
                                                               $post_id=$_GET['post_id'];
+                                                              
+                                                              function getUserTitle($conn,$like_owner){
+                                                                $sql="SELECT * FROM users WHERE username='$like_owner'";
+                                                                $statement=$conn->query($sql);
+                                                                if(!$statement){
+                                                                    die('invalid query!').$conn->getMessage();
+                                                                }
+                                                                while($res=$statement->fetch()){
+                                                                    $title=$res['title'];
+                                                                    return $title;
+                                                                }
+                                                              }
                                                               $sql="SELECT * FROM likes WHERE post_liked_id=$post_id";
                                                               $statement=$connection->query($sql);
                                                               if(!$statement){
@@ -227,6 +239,7 @@ include_once 'resources/utilities.php';
                                                               while($res=$statement->fetch()){
                                                                   $like_owner=$res['like_owner'];
                                                                   $like_owner_img=$res['like_owner_img'];
+                                                                  $user_title=getUserTitle($connection,$like_owner);
 
                                                                   $default="assets/images/default_user.webp";
                                                                   if($like_owner_img !=null){
@@ -236,9 +249,12 @@ include_once 'resources/utilities.php';
                                                                       $user_like_img=$default;
                                                                   }
                                                                   ?>
-                                                                  <div class="col-12 col-md-12 col-lg-12 d-flex align-items-end p-2 mb-2 rounded show-user-like-area">
+                                                                  <div class="col-12 col-md-12 col-lg-12 d-flex align-items-center p-2 mb-2 rounded show-user-like-area">
                                                                       <img class="img-bg-properties rounded-circle" src="<?php echo $user_like_img;?>" alt="">
-                                                                      <span class='ps-2'><?php echo ucfirst($like_owner);?></span>
+                                                                      <div class="d-column">
+                                                                        <span class='ps-2'><?php echo ucfirst($user_title);?></span><br>
+                                                                        <span class='ps-2'><?php echo ucfirst($like_owner);?></span>
+                                                                      </div>
                                                                   </div>
                                                                   <?php
                                                               }
@@ -319,7 +335,7 @@ include_once 'resources/utilities.php';
                                                     $noti_sender=$comment_owner;
                                                     $noti_sender_img=$comment_owner_img;
                                                     $noti_receiver=$user_post;
-                                                    Noti($connection,$event,$content,$noti_sender,$noti_sender_img,$noti_receiver,$post_id,$post_title);                                                   
+                                                    NotiFromUser($connection,$event,$content,$noti_sender,$noti_sender_img,$noti_receiver,$post_id,$post_title);                                                   
                                                 }
                                             }catch(PDOException $ex){
                                                 echo "Error Exception ".$ex->getMessage();
@@ -426,7 +442,22 @@ include_once 'resources/utilities.php';
                                                 <div class='comments-title-area d-flex justify-content-between align-items-start'>
                                                     <p class='m-0'><?php echo  $comment_owner;?></p>
                                                     <div class='dropdown'>
-                                                      <a class='show-more-btn' href='#' data-bs-toggle='dropdown' aria-expanded='false'><i class='fa-solid fa-ellipsis text text-dark'></i></a>      
+                                                      <?php
+                                                        if(isset($_SESSION['id'])){
+                                                            $id=$_SESSION['id'];
+                                                            $userLogged=getUsername($connection,$id);
+                                                            if($userLogged==$comment_owner){
+                                                                // echo "ok";
+                                                                ?>
+                                                                <a class='show-more-btn' href='#' data-bs-toggle='dropdown' aria-expanded='false'><i class='fa-solid fa-ellipsis text text-dark'></i></a> 
+                                                                <?php
+                                                            }else{
+                                                                // echo "err";
+                                                            }
+                                                        }else{
+                                                            // echo "user not logged!";
+                                                        }
+                                                      ?>     
                                                       <ul class='dropdown-menu'>
                                                         <li><a class='dropdown-item' id='update_comment'>Update comment</a></li>
                                                         <li><a class='dropdown-item' href='delete_comment.php?comment_id=<?php echo $comment_id;?>'>Delete comment</a></li>

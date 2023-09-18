@@ -208,7 +208,7 @@ function getAdminUsername($conn,$id){
 }
 
 
-function Noti($conn,$event,$content,$noti_sender,$noti_sender_img,$noti_receiver,$post_id,$post_title){
+function NotiFromUser($conn,$event,$content,$noti_sender,$noti_sender_img,$noti_receiver,$post_id,$post_title){
     $contents=$noti_sender.' '.$event.' '.$content;
     // check if notification is already exist or not
     $sql="SELECT COUNT(*) AS isNotiExist FROM notifications WHERE content='$contents' AND noti_sender='$noti_sender' AND noti_receiver='$noti_receiver' AND post_reacted_id='$post_id'";
@@ -267,6 +267,18 @@ function getPostTitle($conn,$post_id){
         return $title;
     }
 }
+
+function addDefaultPassword($conn, $origin_password, $password_owner){
+    try {
+        $sql="INSERT INTO defaultPassword (origin_password, password_owner)
+              VALUES (:origin_password, :password_owner) ";
+        $statement=$conn->prepare($sql);
+        $statement->execute(array(':origin_password'=>$origin_password, ':password_owner'=>$password_owner));
+    }catch(PDOException $ex){
+        $result=falshMessage('Error Exception '.$ex->getMessage());
+    }
+}
+
 
 ?>
 

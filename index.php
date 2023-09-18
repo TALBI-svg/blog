@@ -53,7 +53,7 @@ include_once 'resources/utilities.php';
                                 }
                                 while($res=$statement->fetch()){
                                     $description=substr($res['description'], 0, 25); 
-                                    $title=substr($res['title'], 0, 35);
+                                    $title=substr($res['title'], 0, 34);
                                     $post_id=$res['id'];
                                     ?>
                                     <div class='col-12 col-md-6 col-lg-4'>
@@ -109,7 +109,7 @@ include_once 'resources/utilities.php';
                                     }
                                     while($res=$statement->fetch()){
                                         $description=substr($res['description'], 0, 25); 
-                                        $title=substr($res['title'], 0, 35);
+                                        $title=substr($res['title'], 0, 34);
                                         $post_id=$res['id'];
                                         ?>
                                         <div class='col-12 col-md-6 col-lg-4'>
@@ -161,7 +161,7 @@ include_once 'resources/utilities.php';
                         }
                         while($res=$statement->fetch()){
                             $description=substr($res['description'], 0, 25); 
-                            $title=substr($res['title'], 0, 35);
+                            $title=substr($res['title'], 0, 34);
                             $post_id=$res['id'];
                             ?>
                             <div class='col-12 col-md-6 col-lg-4'>
@@ -203,30 +203,46 @@ include_once 'resources/utilities.php';
                 </div> -->
 
                 <?php 
-                    $sql="SELECT * FROM posts  WHERE date_create >= NOW() - INTERVAL 24 hour LIMIT 5";
+                    $sql="SELECT COUNT(*) as isLatestPostExist FROM posts WHERE date_create >= NOW() - INTERVAL 24 hour";
                     $statement=$connection->query($sql);
                     if(!$statement){
                         die("invalid query for latest posts".$connection->error);
                     }
                     while($res=$statement->fetch()){
-                        $title=substr($res['title'], 0, 17);
-                        $date=strftime("%b %d, %Y", strtotime($res['date_create']));
-                        echo"
-                        <div class='col-12 col-md-12 col-lg-12'>
-                            <div class='container'>
-                                <a href='post_details.php?post_id=$res[id]' class='row mb-3 latest-area-content link-redirection'>
-                                    <div class='col-12 col-md-4 col-lg-4 p-0 pe-3'>
-                                        <img src='assets/images_post/$res[image]' class='card-img-top' alt='...'>
+                        $isLatestPostExist=$res['isLatestPostExist'];
+                        if($isLatestPostExist>0){
+                            // echo "ok";
+                            $sql="SELECT * FROM posts  WHERE date_create >= NOW() - INTERVAL 24 hour LIMIT 5";
+                            $statement=$connection->query($sql);
+                            if(!$statement){
+                                die("invalid query for latest posts".$connection->error);
+                            }
+                            while($res=$statement->fetch()){
+                                $title=substr($res['title'], 0, 17);
+                                $date=strftime("%b %d, %Y", strtotime($res['date_create']));
+                                echo"
+                                <div class='col-12 col-md-12 col-lg-12'>
+                                    <div class='container'>
+                                        <a href='post_details.php?post_id=$res[id]' class='row mb-3 latest-area-content link-redirection'>
+                                            <div class='col-12 col-md-4 col-lg-4 p-0 pe-3'>
+                                                <img src='assets/images_post/$res[image]' class='card-img-top' alt='...'>
+                                            </div>
+                                            <div class='col-12 col-md-8 col-lg-8 p-0'>
+                                                <span class='p-0 fw-normal'>$title</span><br>
+                                                <span class='date-time p-0 fw-light'>$date</span>
+                                            </div>
+                                        </a>
                                     </div>
-                                    <div class='col-12 col-md-8 col-lg-8 p-0'>
-                                        <span class='p-0 fw-normal'>$title</span><br>
-                                        <span class='date-time p-0 fw-light'>$date</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        ";
+                                </div>
+                                ";
+                            }
+                        }else{
+                            ?>
+                            <p class="py-2 px-3 rounded text text-dark border" style="background-color:#f8f9fa;">No latest post for now !</p>
+                            <?php
+                        }
                     }
+
                 ?>
                 <?php
                 if(isset($_SESSION['id'])){

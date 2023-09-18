@@ -39,7 +39,7 @@ if(isset($_SESSION['id'])){
                         $statement=$connection->prepare($sql);
                         $statement->execute(array(':password'=>$hashed_password,':email'=>$email));
 
-                        $result=falshMessage('Password Resetted Successfully','Pass');
+                        $result=falshMessage('Password Reseted Successfully','Pass');
                     }else{
                         $result=falshMessage('The address email provided dose\'t exists! try again');
                     }

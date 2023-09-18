@@ -34,7 +34,7 @@ include_once 'resources/utilities.php';
               while($res=$statement->fetch()){
                 $noti_id=$res['id'];
                 $post_id=$res['post_reacted_id'];
-                $post_title=substr($res['post_reacted_title'],0,40);
+                $post_title=substr($res['post_reacted_title'],0,35);
                 $noti_content=ucfirst($res['content']);
                 $noti_date=strftime("%b %d, %Y", strtotime($res['date_noti']));
                 $noti_sender_img=$res['noti_sender_img'];

@@ -21,8 +21,10 @@ create table users(
   created_at TIMESTAMP,
   title VARCHAR(100),
   address VARCHAR(100),
-  profile_pic VARCHAR(100)  UNIQUE
+  profile_pic VARCHAR(100)  UNIQUE,
+  status VARCHAR(100) default('active')
 );
+
 
 create table posts(
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -93,6 +95,13 @@ create table notifications(
   post_reacted_title VARCHAR(100),
   FOREIGN KEY (noti_receiver) REFERENCES users(username),
   FOREIGN KEY (post_reacted_id) REFERENCES posts(id) ON DELETE CASCADE
+);
+
+create table defaultPassword(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  origin_password VARCHAR(200),
+  password_owner VARCHAR(100),
+  FOREIGN KEY (password_owner) REFERENCES users(username) ON DELETE CASCADE
 );
 
 

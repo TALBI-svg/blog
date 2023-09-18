@@ -72,8 +72,12 @@ if(isset($_POST['signupBtn'])){
               $statement=$connection->prepare($sql);
               $statement->execute(array(':username'=>$username,':email'=>$email,':firstname'=>$firstname,':lastname'=>$lastname,':password'=>$hashed_password));
               if($statement->rowCount()==1){
-                  $result=falshMessage('Register success','Pass');
                   // ini_set(header('location: login.php'), 10);
+                  $result=falshMessage('Register success','Pass');
+                  
+                  $origin_password=$hashed_password;
+                  $password_owner=$username;
+                  addDefaultPassword($connection,$origin_password,$password_owner);
               }
               // }
           }catch(PDOException $ex){

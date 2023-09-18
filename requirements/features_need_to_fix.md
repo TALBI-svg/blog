@@ -16,3 +16,4 @@ validated 14 #notification for post liked for which post?#
 16 #change image profile when user add new image#
 17 #hide likes users when user not logged#
 <!-- 18 #show message when user dose't exist in db# -->
+19 #logout user when account disactivated#

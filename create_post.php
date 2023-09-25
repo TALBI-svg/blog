@@ -100,7 +100,10 @@ if(isset($_SESSION['id'])){
             <div class="col-12 col-md-4 col-lg-3">
               <div class="container">
                 <form action="" method="post" enctype="multipart/form-data">
-                  <h2 class="mb-3 text text-warning">Create Post</h2>
+                  <div class="row title-area mt-3 mb-2">
+                      <h3>Create Post</h3>
+                  </div>
+                  
                   <div class="mb-3">
                     <input type="text" name="title" value="" class="form-control" placeholder="Post title">
                   </div>
@@ -128,6 +131,7 @@ if(isset($_SESSION['id'])){
                     <option selected disabled>Category</option>
                     <option value="front-end">Front-end</option>
                     <option value="back-end">Back-end</option>
+                    <option value="data-base">Data-base</option>
                   </select>
                   
                   <div class="row">

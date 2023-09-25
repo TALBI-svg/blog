@@ -19,10 +19,7 @@ if(isset($_SESSION['admin_id'])){
  
 }
 
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,14 +44,14 @@ if(isset($_SESSION['admin_id'])){
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="col-12 d-flex justify-content-between align-items-start align-items-lg-end mt-2 mt-lg-0">
             <div class="col-4 d-flex align-items-lg-center navbar-nav">
-              <a class="nav-link" href="#">Panel options</a>
+              <a class="nav-link" href="panel_options.php">Panel options</a>
               <?php if(isset($_SESSION['username_admin']) || isCookieValid($connection)) : ?>
-                <a class="nav-link" href="#">Users</a>
+                <a class="nav-link" href="#">Roles</a>
                 <a class="nav-link" href="#">Contents</a>
+                <a class="nav-link btn border border-white py-1 signupBtn d-flex align-items-center search-area" href="#">Search <i class="fa-solid fa-magnifying-glass ms-2"></i></a>
               <?php else: ?>
                 <!-- <a class="nav-link" href="login.php">login</a> -->
               <?php endif ?>
-              <a class="nav-link btn border border-white py-1 signupBtn d-flex align-items-center search-area" href="#">Search <i class="fa-solid fa-magnifying-glass ms-2"></i></a>
             </div>
             <div class="col-8 col-lg-2 navbar-nav ms-auto info-user-area d-flex justify-content-end align-items-center">
               <?php if(isset($_SESSION['username_admin']) || isCookieValid($connection)) : ?>

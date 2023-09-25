@@ -107,7 +107,9 @@ if((isset($_SESSION['id']) || isset($_GET['post_id'])) && !isset($_POST['updateB
 
                 <div class="container">
                     <form action="" method="post" enctype="multipart/form-data" class="ms-2 mt-3">
-                      <h2 class="mb-3 text text-warning">Update Post</h2>
+                      <div class="row title-area mt-3 mb-2">
+                          <h3>Update Post</h3>
+                      </div>
                       <div class="mb-3">
                         <input type="text" name="post_id" hidden value="<?php echo $post_id;?>">
                       </div>
@@ -140,6 +142,7 @@ if((isset($_SESSION['id']) || isset($_GET['post_id'])) && !isset($_POST['updateB
                         <option selected disabled>Category</option>
                         <option value="front-end">Front-end</option>
                         <option value="back-end">Back-end</option>
+                        <option value="data-base">Data-base</option>
                         </select>
                       <div class="row">
                         <div class="d-flex justify-content-between align-items-center">

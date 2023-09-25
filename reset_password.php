@@ -77,7 +77,9 @@ if(isset($_SESSION['id'])){
             <div class="row">
                 <div class="col-12 col-md-4 col-lg-3">
                     <form action="" method="post" autocomplete="off">
-                    <h1 class="mb-3 text text-warning">Reset password</h1>
+                    <div class="row title-area mt-3 mb-2">
+                        <h3>Reset password</h3>
+                    </div>
                     <div class="mb-3">
                       <input type="text" name="email" class="form-control" value="" placeholder="Email">
                     </div>

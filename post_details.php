@@ -30,19 +30,17 @@ include_once 'resources/utilities.php';
                     while($res=$statement->fetch()){
                         $title=$res['title'];
                         $user_post=$res['user_post'];
-                        $user_post_image=$res['user_post_image'];
                         $default="default_user.webp";
                         $date_create=$date=strftime("%b %d, %Y", strtotime($res['date_create']));
                         $image_post=$res['image'];
                         $description=$res['description'];
                         $category=$res['category'];
+
+                        $user_post_image=$res['user_post_image'];
                         $default="assets/images/default_user.webp";
-                        if($user_post_image !=null){
-                            $user_image="assets/images/$user_post_image";
-                            $profile_image=$user_image;
-                        }else{
-                            $profile_image=$default;
-                        }?>
+                        
+                        $profile_image=setDefaultImage($user_post_image,$default);
+                        ?>
                         <div class='row'>
                         <div class='col-12 col-md-10 col-lg-6 m-auto p-0'>
                             <p class='title-area fw-bold fs-1 px-1'><?php echo $title; ?></p>
@@ -149,16 +147,7 @@ include_once 'resources/utilities.php';
                                     <?php
                                         if($_SERVER['REQUEST_METHOD'] === "GET"){
                                             $post_id=$_GET['post_id'];
-
-                                            $sql="SELECT COUNT(like_post) as likes_nbr FROM likes WHERE post_liked_id='$post_id'";
-                                            $statement=$connection->query($sql);
-                                            if(!$statement){
-                                                die("invalid query for count likkes".$connection->getMessage());
-                                            }
-                                            while($res=$statement->fetch()){
-                                                $likes_nbr=$res['likes_nbr'];
-                                            }
-
+                                            $likes_nbr=CountLikes($connection,$post_id);
                                         }
                                     ?>
                                         <div class='d-flex align-itmes-center likes-area'>

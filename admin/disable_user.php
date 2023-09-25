@@ -26,7 +26,7 @@ if(isset($_SESSION['admin_id'])){
                     $statement->execute(array(':status'=>$status, ':user_id'=>$user_id));
         
                     if($statement->rowCount()==1){
-                        header("location:dashboard.php");
+                        header("location:panel_options.php");
                     }
                 } catch(PDOException $ex){
                     die('Error Exception ').$ex->getMessage();
@@ -42,7 +42,7 @@ if(isset($_SESSION['admin_id'])){
                     $statement->execute(array(':status'=>$status, ':user_id'=>$user_id));
         
                     if($statement->rowCount()==1){
-                        header("location:dashboard.php");           
+                        header("location:panel_options.php");           
                     }
                 } catch(PDOException $ex){
                     die('Error Exception ').$ex->getMessage();

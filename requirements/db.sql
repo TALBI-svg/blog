@@ -8,7 +8,6 @@ create table admins(
   email VARCHAR(100),
   password VARCHAR(200),
   created_at TIMESTAMP
-  
 );
 
 create table users(
@@ -21,7 +20,7 @@ create table users(
   created_at TIMESTAMP,
   title VARCHAR(100),
   address VARCHAR(100),
-  profile_pic VARCHAR(100)  UNIQUE,
+  profile_pic VARCHAR(100) UNIQUE,
   status VARCHAR(100) default('active')
 );
 
@@ -34,8 +33,8 @@ create table posts(
   date_create TIMESTAMP,
   category VARCHAR(10) default('Front-end'),
   user_post VARCHAR(100),
-  user_post_image VARCHAR(100), 
-  FOREIGN KEY (user_post) REFERENCES users(username),  
+  user_post_image VARCHAR(100),
+  FOREIGN KEY (user_post) REFERENCES users(username) ON DELETE CASCADE,  
   FOREIGN KEY (user_post_image) REFERENCES users(profile_pic)
 );
 
@@ -46,7 +45,7 @@ create table comments(
   comment_owner VARCHAR(100),
   comment_owner_img VARCHAR(100), 
   post_commented_id INT(100),
-  FOREIGN KEY (comment_owner) REFERENCES users(username),
+  FOREIGN KEY (comment_owner) REFERENCES users(username) ON DELETE CASCADE,
   FOREIGN KEY (comment_owner_img) REFERENCES users(profile_pic),
   FOREIGN KEY (post_commented_id) REFERENCES posts(id) ON DELETE CASCADE
 );
@@ -57,7 +56,7 @@ create table likes(
   like_owner VARCHAR(100),
   like_owner_img VARCHAR(100),
   post_liked_id INT(100),
-  FOREIGN KEY (like_owner) REFERENCES users(username),
+  FOREIGN KEY (like_owner) REFERENCES users(username) ON DELETE CASCADE,
   FOREIGN KEY (like_owner_img) REFERENCES users(profile_pic),
   FOREIGN KEY (post_liked_id) REFERENCES posts(id) ON DELETE CASCADE
 );
@@ -72,7 +71,7 @@ create table favorites(
   post_img VARCHAR(100),
   favorit_post_id INT,
   favorites_owner VARCHAR(100),
-  FOREIGN KEY (favorites_owner) REFERENCES users(username),
+  FOREIGN KEY (favorites_owner) REFERENCES users(username) ON DELETE CASCADE,
   FOREIGN KEY (post_creator) REFERENCES posts(user_post)  ON DELETE CASCADE,
   FOREIGN KEY (favorit_post_id) REFERENCES posts(id) ON DELETE CASCADE
 );
@@ -93,7 +92,7 @@ create table notifications(
   noti_receiver VARCHAR(100),
   post_reacted_id INT(100),
   post_reacted_title VARCHAR(100),
-  FOREIGN KEY (noti_receiver) REFERENCES users(username),
+  FOREIGN KEY (noti_receiver) REFERENCES users(username) ON DELETE CASCADE,
   FOREIGN KEY (post_reacted_id) REFERENCES posts(id) ON DELETE CASCADE
 );
 
@@ -104,5 +103,23 @@ create table defaultPassword(
   FOREIGN KEY (password_owner) REFERENCES users(username) ON DELETE CASCADE
 );
 
+create table feedbacks(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  feedback_owner VARCHAR(100),
+  feedback_owner_img VARCHAR(100),
+  feedback_owner_title VARCHAR(100),
+  feedback_date TIMESTAMP,
+  title VARCHAR(100),
+  message text,
+  replayed VARCHAR(100) default('false'),
+  FOREIGN KEY (feedback_owner) REFERENCES users(username) ON DELETE CASCADE
+);
 
-
+create table feedbacks_replay(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  replay_message text,
+  replay_owner VARCHAR(100),
+  replay_date TIMESTAMP,
+  feedback_replayed_on_id INT,
+  FOREIGN KEY (feedback_replayed_on_id) REFERENCES feedbacks(id) ON DELETE CASCADE
+);

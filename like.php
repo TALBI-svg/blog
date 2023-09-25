@@ -37,7 +37,6 @@ if(isset($_SESSION['id'])){
                         $statement=$connection->prepare($sql);
                         $statement->execute(array(':like_post'=>$like_post, ':like_owner'=>$like_owner, ':like_owner_img'=>$like_owner_img, ':post_liked_id'=>$post_id ));
                         if($statement->rowCount()==1){
-
                             $user_post=getUserPost($connection,$post_id);
                             $post_title=getPostTitle($connection,$post_id);
                             $event="like";
@@ -45,8 +44,7 @@ if(isset($_SESSION['id'])){
                             $noti_sender=$like_owner;
                             $noti_sender_img=$like_owner_img;
                             $noti_receiver=$user_post;
-                            NotiFromUser($connection,$event,$content,$noti_sender,$noti_sender_img,$noti_receiver,$post_id,$post_title);   
-                                                     
+                            NotiFromUser($connection,$event,$content,$noti_sender,$noti_sender_img,$noti_receiver,$post_id,$post_title);                        
                         }
                     } catch (PDOException $ex) {
                         echo "Error Exception ".$ex->getMessage();

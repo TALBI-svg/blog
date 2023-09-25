@@ -279,6 +279,28 @@ function addDefaultPassword($conn, $origin_password, $password_owner){
     }
 }
 
+function setDefaultImage($uri,$default){
+    if($uri !=null){
+        $origine_image="assets/images/$uri";
+        $image=$origine_image;
+        return $image;
+    }else{
+        $image=$default;
+        return $image;
+    }
+}
 
+function CountLikes($conn,$post_id){
+    $sql="SELECT COUNT(like_post) as likes_nbr FROM likes WHERE post_liked_id='$post_id'";
+    $statement=$conn->query($sql);
+    if(!$statement){
+        die("invalid query for count likkes".$conn->getMessage());
+    }
+    while($res=$statement->fetch()){
+        $likes_nbr=$res['likes_nbr'];
+        return $likes_nbr;
+
+    }
+}
 ?>
 

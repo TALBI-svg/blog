@@ -254,6 +254,7 @@ include_once 'resources/utilities.php';
                                 <option selected disabled>Category</option>
                                 <option value="front-end">Front-end</option>
                                 <option value="back-end">Back-end</option>
+                                <option value="data-base">Data-base</option>
                                 <option value="all">All</option>
                             </select>
                         </form>

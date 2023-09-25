@@ -17,3 +17,7 @@ validated 14 #notification for post liked for which post?#
 17 #hide likes users when user not logged#
 <!-- 18 #show message when user dose't exist in db# -->
 19 #logout user when account disactivated#
+20 #block user to not add more then feedback much times#
+21 #push notification when admin replay#
+
+22 #in dashboard get every category count posts#

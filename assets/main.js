@@ -23,18 +23,3 @@ updateBtn.forEach(function (ele){
     })
 })
 
-// hideTable
-// whenSearch
-// whenSearchInpt
-// form
-
-let searchInpt=document.querySelector('#whenSearchInpt')
-let form=document.querySelector("#sendRequestForm")
-form.addEventListener('submit', function(){
-    // if(searchInpt.value!==""){
-    //     return true
-    // }else{
-    //     return false
-    // }
-    console.log('ok')
-})

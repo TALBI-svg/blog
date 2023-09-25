@@ -29,7 +29,7 @@ if($_SESSION['admin_id']){
             $pass=$res['password'];
             if($pass===$origin_password){
                 // echo "ok";
-                header("location: dashboard.php");
+                header("location: panel_options.php");
             }else{
                 // echo "err";
                 try{
@@ -39,7 +39,7 @@ if($_SESSION['admin_id']){
                     $statement->execute(array(':password'=>$origin_password, ':username'=>$username));
                     
                     if($statement->rowCount()==1){
-                        header("location: dashboard.php");
+                        header("location: panel_options.php");
                     }
                 }catch(PDOException $ex){
                     $result=falshMessage('Error Exception '.$ex->getMessage());

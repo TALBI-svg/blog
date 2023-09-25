@@ -96,7 +96,9 @@ if((isset($_SESSION['id']) || isset($_GET['user_indetity'])) && !isset($_POST['u
             <div class="col-12 col-md-4 col-lg-3">
               <div class="container">
                 <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
-                  <h2 class="mb-3 text text-warning">Update Profile</h2>
+                  <div class="row title-area mt-3 mb-2">
+                      <h3>Update Profile</h3>
+                  </div>
                   <div class="mb-3">
                     <div class="view-img-properties rounded-circle" id="view-image"></div>
                         <label for="file-input" class="label-properties rounded-circle"><img class="icon-img rounded-circle" src="./assets/images/edit.webp"></label>

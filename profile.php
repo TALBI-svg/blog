@@ -35,8 +35,6 @@ if(isset($_SESSION['id'])){
 }else{
     redirect('login');
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -57,13 +55,13 @@ if(isset($_SESSION['id'])){
                 <img class="img-user-properties rounded-circle" src="<?php if(isset($profile_image)) echo $profile_image;?>">
                 <a href="edit_profile.php"><img class="img-edit-properties rounded-circle" src="./assets/images/edit.webp"></a>
                 <div class="row d-flex justify-content-between">
-                    <div class="col-12 col-md-8 col-lg-4">
+                    <div class="col-12 col-md-8 col-lg-5">
                         <h1 class="User-info-area px-3">
                         <?php echo ucfirst($username);?>
                         </h1>
                         <div class="User-info-area-credentials px-3">
-                            <p class="badge text text-white rounded-pill text-bg-warning"><?php echo ucfirst($firstname);?></p>
-                            <p class="badge text text-white rounded-pill text-bg-warning ms-2"><?php echo ucfirst($lastname);?></p>
+                            <p class="badge text text-dark rounded-pill text-bg-warning"><?php echo ucfirst($firstname);?></p>
+                            <p class="badge text text-dark rounded-pill text-bg-warning ms-2"><?php echo ucfirst($lastname);?></p>
                         </div>
                         <div class="User-info-area-description px-3">
                             <p class="">
@@ -85,10 +83,11 @@ if(isset($_SESSION['id'])){
                                 }?> <a href="#">More info</a> <br>Email: <?php echo $email;?><br>Joined date: <?php echo $created_at;?></p>
                         </div>
                         <div class="User-info-area-address options-bar px-3">
-                            <a class="btn badge text text-white p-2 rounded-pill text-bg-dark" href="create_post.php"><i class="fa-solid fa-circle-plus"></i> Create Post</a>
-                            <a class="btn badge text text-white p-2 rounded-pill text-bg-dark" href="my_posts.php"><i class="fa-solid fa-newspaper"></i> My Posts</a>
-                            <a class="btn badge text text-white p-2 rounded-pill text-bg-dark" href="edit_profile.php?user_identity==<?php if(isset($encode_id)) echo $encode_id;?>"><i class="fa-solid fa-pen-to-square"></i> Edit Profile</a>
-                            <a class="btn badge text text-white p-2 rounded-pill text-bg-dark mt-2" href="reset_password.php"><i class="fa-solid fa-lock"></i> Edit Password</a>
+                            <a class="btn badge text text-dark p-2 rounded-pill border-0 text-bg-warning" href="create_post.php"><i class="fa-solid fa-circle-plus"></i> Create Post</a>
+                            <a class="btn badge text text-dark p-2 rounded-pill border-0 text-bg-warning" href="my_posts.php"><i class="fa-solid fa-newspaper"></i> My Posts</a>
+                            <a class="btn badge text text-dark p-2 rounded-pill border-0 text-bg-warning" href="#">Followers <span class="fw-normal">2</span></a>
+                            <a class="btn badge text text-dark p-2 rounded-pill border-0 text-bg-warning mt-2" href="#">Following <span class="fw-normal">15</span></a>
+                            <a class="btn badge text text-dark p-2 rounded-pill border-0 text-bg-warning mt-2" href="user_settings.php"><i class="fa-solid fa-gear"></i> Settings</a>
                         </div>
                     </div>
                 </div>

@@ -27,11 +27,12 @@ label:focus,
     /* -webkit-appearance:none; */
     box-shadow: none !important;
 }
-
+::-webkit-scrollbar {
+    display: none;
+}
 .signupBtn{
     border-radius: 20px;
 }
-
 
 /* -----------------PROFILE PAGE----------------- */
 .Profile .row .first-container{
@@ -186,7 +187,7 @@ label:focus,
     /* font-weight: 500; */
 }
 .Profile .row .col-12 .post-area-conatiner .post-area .post-area-show-comment .comments-area .comment-date-area{
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .Profile .row .col-12 .post-area-conatiner .post-area .post-area-show-comment .comments-area span a{
@@ -270,9 +271,6 @@ label:focus,
     overflow: hidden;
     overflow-y: scroll;
     height: 85vh;
-}
-::-webkit-scrollbar {
-    display: none;
 }
 .INDEX .card:hover{
     cursor: pointer;
@@ -435,7 +433,7 @@ label:focus,
     font-weight: 500;
 }
 .POSTDETAILS .global-post .content-area .col-12 .row .show-comment-area .col-12 .comments-text-area .comment-date-area{
-    font-size: 10px;
+    font-size: 12px;
 }
 
 
@@ -684,7 +682,7 @@ label:focus,
 
 /* -----------------FAVORITESPOSTS PAGE----------------- */
 .FAVORITESPOSTSshow .title-area h3{
-    color: #ffc107;
+    color: #000;
 }
 .FAVORITESPOSTSshow .favorite-content-area{
     background: #fff;
@@ -728,7 +726,7 @@ label:focus,
 
 /* -----------------NOTIFICATIONS PAGE----------------- */
 .NOTIFICATIONS .container .title-area h3{
-    color: #ffc107;
+    color: #000;
 }
 /* noti not readed */
 .NOTIFICATIONS .container .row .col-12 .not-readed{
@@ -779,45 +777,175 @@ label:focus,
     font-weight: normal;
 }
 
-/* -----------------DASHBOARD PAGE----------------- */
-.DASHBOARD .row .content-area{
-    height: 90vh;
+/* -----------------PANELOPTIONS PAGE----------------- */
+.PANELOPTIONS .row .content-area{
+    height: 88vh;
 }
-.DASHBOARD .row .col-12 nav .nav-tabs .nav-link{
+.PANELOPTIONS .row .col-12 nav .nav-tabs .nav-link{
     color: #000;
     border: 1px solid #fff;
 }
-.DASHBOARD .row .col-12 nav .nav-tabs .nav-link:hover{
+.PANELOPTIONS .row .col-12 nav .nav-tabs .nav-link:hover{
     border: 1px solid #fff;
 }
-.DASHBOARD .row .col-12 nav .nav-tabs .active{
+.PANELOPTIONS .row .col-12 nav .nav-tabs .active{
     background: #f2f2f2;
     border: 1px solid #fff;
     color: #000;
     border-radius: 5px;
 
 }
-.DASHBOARD .row .col-12 .tab-content .tab-pane .table tbody tr .users-image img{
+.PANELOPTIONS .row .col-12 .tab-content .tab-pane .table tbody tr .users-image img{
     height: 35px;
     width: 35px;
     max-width: 35px;
 }
 
-/* -----------------MOREOPTIONS PAGE----------------- */
-.MOREOPTIONS .row .content-area{
-    height: 90vh;
+.PANELOPTIONS .row .col-12 .feedback-area{
+    height: 88vh;
+    overflow: hidden;
+    overflow-y: scroll;
 }
-.MOREOPTIONS .row .col-12 nav .nav-tabs .nav-link{
-    color: #000;
-    border: 1px solid #fff;
+.PANELOPTIONS .row .col-12 .tab-pane .main-feed{
+    background: #f8f9fa;
+    border: 0.5px solid #eee;
+    margin-right: 5px;
+    cursor: pointer;
 }
-.MOREOPTIONS .row .col-12 nav .nav-tabs .nav-link:hover{
-    border: 1px solid #fff;
+.PANELOPTIONS .row .col-12 .tab-pane .replayed{
+    background: #fff;
+    border: 0.5px solid #eee;
+    margin-right: 5px;
+    cursor: pointer;
 }
-.MOREOPTIONS .row .col-12 nav .nav-tabs .active{
+.PANELOPTIONS .row .col-12 .tab-pane .main-feed:hover{
     background: #f2f2f2;
-    border: 1px solid #fff;
-    color: #000;
-    border-radius: 5px;
+}
+.PANELOPTIONS .row .col-12 .tab-pane .main-feed .feedback-user-info img{
+    height: 35px;
+    width: 35px;
+    max-width: 35px;
+}
+.PANELOPTIONS .row .col-12 .tab-pane .main-feed .feedback-user-info .right span{
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.PANELOPTIONS .row .col-12 .tab-pane .main-feed .feedback-user-info .right .title{
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.PANELOPTIONS .row .col-12 .tab-pane .main-feed .feeback-title{
+    font-size: 12px;
+    font-weight: bold;
+}
+.PANELOPTIONS .row .col-12 .tab-pane .main-feed .feeback-title .date{
+    font-size: 12px;
+    font-weight: 500;
+    color: #279EFF;
+}
+.PANELOPTIONS .row .col-12 .tab-pane .main-feed .feeback-message p{
+    font-size: 13px;
+}
+.PANELOPTIONS .row .col-12 .tab-pane .main-feed .replay-area p{
+    font-size: 13px;
+    font-style: italic;
 }
 
+/* ----------------- DASHBOARD PAGE----------------- */
+
+
+/* -----------------USERSETTINGS PAGE----------------- */
+.USERSETTINGS .container .title-area h3{
+    color: #000;
+}
+
+
+/* -----------------FEEDBACK PAGE----------------- */
+.FEEDBACK .container .row .row .add-feedback{
+    width:35px;
+    max-width: 35px;
+    height:35px;
+    border-radius: 25px;
+    background:#f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.FEEDBACK .container .row .row .add-feedback:hover{
+    background: #ffc107;
+    color: #fff;
+}
+.FEEDBACK .container .main-row{
+    height: 75vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.FEEDBACK .container .row  .main-feed{
+    background: #f8f9fa;
+    border: 1px solid #eee;
+    margin-right: 5px;
+    cursor: pointer;
+    /* box-shadow: 1px 1px 7px 1px  rgba(0, 0, 0, 0.1); */
+}
+.FEEDBACK .container .row  .main-feed:hover{
+    background: #f2f2f2;
+}
+.FEEDBACK .container .row  .main-feed .feed-state .sent{
+    background: green;
+    font-size: 13px;
+}
+.FEEDBACK .container .row  .main-feed .feed-state .replay{
+    background: gray;
+    font-size: 13px;
+}
+.FEEDBACK .container .row  .main-feed .replayed .sent{
+    background: grey;
+    font-size: 13px;
+}
+.FEEDBACK .container .row  .main-feed .replayed .replay{
+    background: green;
+    font-size: 13px;
+}
+.FEEDBACK .container .row  .main-feed .feedback-user-info img{
+    height: 35px;
+    width: 35px;
+    max-width: 35px;
+}
+.FEEDBACK .container .row  .main-feed .feedback-user-info .right span{
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.FEEDBACK .container .row  .main-feed .feedback-user-info .right .title{
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.FEEDBACK .container .row  .main-feed .feeback-title{
+    font-size: 12px;
+    font-weight: bold;
+}
+.FEEDBACK .container .row  .main-feed .feeback-title .date{
+    font-size: 12px;
+    font-weight: 500;
+    color: #279EFF;
+}
+.FEEDBACK .container .row  .main-feed .feeback-message p{
+    font-size: 13px;
+}
+.FEEDBACK .container .row  .main-feed .replay-area p{
+    font-size: 13px;
+    font-weight: bold;
+}
+.FEEDBACK .container .row  .main-feed .replay-area .replay-feeback-message p{
+    font-style: normal;
+    font-weight: 500;
+}
+.FEEDBACK .container .row  .main-feed .replay-area .replay-feeback-message .date{
+    font-size: 12px;
+    font-weight: 500;
+    color: #279EFF;
+}
+/* -----------------CREATEFEEDBACK PAGE----------------- */

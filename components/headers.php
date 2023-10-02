@@ -51,10 +51,11 @@ if(isset($_SESSION['id'])){
               <?php if(isset($_SESSION['username']) || isCookieValid($connection)) : ?>
                 <a class="nav-link" href="favorite_post_view.php">Favorites</a>
                 <a class="nav-link" href="my_posts.php">My Post's</a>
+                <a class="nav-link btn border border-white py-1 signupBtn d-flex align-items-center search-area" href="search.php">Search <i class="fa-solid fa-magnifying-glass ms-2"></i></a>
               <?php else: ?>
                 <!-- <a class="nav-link" href="login.php">login</a> -->
               <?php endif ?>
-              <a class="nav-link btn border border-white py-1 signupBtn d-flex align-items-center search-area" href="search.php">Search <i class="fa-solid fa-magnifying-glass ms-2"></i></a>
+  
             </div>
             <div class="col-8 col-lg-2 navbar-nav ms-auto info-user-area d-flex justify-content-end align-items-center">
               <?php if(isset($_SESSION['username']) || isCookieValid($connection)) : ?>

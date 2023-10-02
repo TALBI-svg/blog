@@ -19,5 +19,5 @@ validated 14 #notification for post liked for which post?#
 19 #logout user when account disactivated#
 20 #block user to not add more then feedback much times#
 21 #push notification when admin replay#
-
 22 #in dashboard get every category count posts#
+23 #when post_details didn't have any post redirect user to index.php#

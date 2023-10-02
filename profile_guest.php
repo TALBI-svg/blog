@@ -57,8 +57,8 @@ include_once 'resources/utilities.php';
                                 <?php echo ucfirst($guest_username);?>
                                 </h1>
                                 <div class="User-info-area-credentials px-3">
-                                    <p class="badge text text-white rounded-pill text-bg-warning"><?php echo ucfirst($firstname);?></p>
-                                    <p class="badge text text-white rounded-pill text-bg-warning ms-2"><?php echo ucfirst($lastname);?></p>
+                                    <p class="badge text text-dark rounded-pill text-bg-warning"><?php echo ucfirst($firstname);?></p>
+                                    <p class="badge text text-dark rounded-pill text-bg-warning ms-2"><?php echo ucfirst($lastname);?></p>
                                 </div>
                                 <div class="User-info-area-description px-3">
                                     <p class="">
@@ -91,13 +91,13 @@ include_once 'resources/utilities.php';
                         ?>
 
                         <div class="User-info-area-address options-bar px-3">
-                            <a class="btn badge p-2 px-3 rounded-pill text-bg-dark" href="#">Posts <span class="fw-normal"><?php echo $posts_count;?></span></a>
+                            <a class="btn badge p-2 px-3 rounded-pill text-bg-warning" href="#">Posts <span class="fw-bold"><?php echo $posts_count;?></span></a>
                         
                         <?php
                     }
                 ?>
-                            <a class="btn badge p-2 px-3 rounded-pill text-bg-dark" href="#">Followers <span class="fw-normal">10</span></a>
-                            <a class="btn badge p-2 px-3 rounded-pill text-bg-dark" href="#">Following <span class="fw-normal">15</span></a>
+                            <a class="btn badge p-2 px-3 rounded-pill text-bg-warning" href="#">Followers <span class="fw-bold">10</span></a>
+                            <a class="btn badge p-2 px-3 rounded-pill text-bg-warning" href="#">Following <span class="fw-bold">15</span></a>
                             <!-- <a class="btn badge text text-white p-2 rounded-pill text-bg-primary password-view" href="#"><i class="fa-solid fa-lock"></i> Edit Password</a> -->
                         </div>
                     </div>

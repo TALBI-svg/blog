@@ -151,8 +151,6 @@ include_once 'resources/utilities.php';
                             }
                         }
 
-
-                        
                     }else{
                         $sql="SELECT * FROM posts";
                         $statement=$connection->query($sql);

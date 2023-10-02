@@ -91,7 +91,7 @@ if((isset($_SESSION['id']) || isset($_GET['user_indetity'])) && !isset($_POST['u
 </head>
 <body>
     <div class="container EditProfile">
-        <div class="row  d-flex justify-content-between">
+        <div class="row">
             <?php if(isset($_SESSION['username'])):?>
             <div class="col-12 col-md-4 col-lg-3">
               <div class="container">

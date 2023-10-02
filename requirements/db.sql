@@ -123,3 +123,10 @@ create table feedbacks_replay(
   feedback_replayed_on_id INT,
   FOREIGN KEY (feedback_replayed_on_id) REFERENCES feedbacks(id) ON DELETE CASCADE
 );
+
+create table search_history(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  search_content VARCHAR(100),
+  search_owner VARCHAR(100),
+  FOREIGN KEY (search_owner) REFERENCES users(username) ON DELETE CASCADE
+);

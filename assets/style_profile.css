@@ -45,6 +45,16 @@ label:focus,
     max-width: 98%;
     border-radius: 7px;
 }
+@media only screen and (max-width: 768px){
+    /*Tablets [601px -> 1200px]*/
+    .Profile .img-bg-properties{
+        height: 200px;
+        width: 98%;
+        max-width: 98%;
+        border-radius: 7px;
+    }
+    
+}
 .Profile .row .col-12 .img-user-properties{
     position: relative;
     top: -70px;
@@ -52,10 +62,10 @@ label:focus,
     height: 100px;
     width: 100px;
 }
-.Profile .img-user-properties:hover{
+/* .Profile .img-user-properties:hover{
     border:1px solid #ffc107;
     cursor: pointer;
-}
+} */
 .Profile .img-edit-properties{
     border: 1px solid #ddd;
     position: relative;
@@ -68,7 +78,6 @@ label:focus,
 .Profile .img-edit-properties:hover{
     background: #ffc107;
     cursor: pointer;
-
 }
 .Profile .User-info-area{
     position: relative;
@@ -100,7 +109,9 @@ label:focus,
     font-weight: 400;
     text-decoration: none;
 }
-
+.Profile .options-bar a{
+    font-size: 13px;
+}
 .Profile .row .col-12 .post-area-conatiner{
     padding: 0px 25px;
 }
@@ -108,16 +119,15 @@ label:focus,
     /*Tablets [601px -> 1200px]*/
     .Profile .row .col-12 .post-area-conatiner{
         padding: 0px 15px;
-    }
-    
+    }   
 }
 .Profile .row .col-12 .post-area-conatiner .post-area{
     border: 1px solid #DEE2E6;
-    box-shadow: 1px 1px 5px 1px  rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 7px 1px  rgba(0, 0, 0, 0.1);
 }
-.Profile .row .col-12 .post-area-conatiner .post-area:hover{
+/* .Profile .row .col-12 .post-area-conatiner .post-area:hover{
     border: 1px solid #ffc107;
-}
+} */
 .Profile .row .col-12 .post-area-conatiner .post-area:hover{
     cursor: pointer;
 }
@@ -197,7 +207,7 @@ label:focus,
     padding: 3px;
     width: 50%;
     max-width: 50%;
-    border-radius: 26px;
+    border-radius: 3px;
     box-shadow: 1px 1px 5px 1px  rgba(0, 0, 0, 0.1);
 
 }
@@ -376,6 +386,11 @@ label:focus,
     cursor: pointer;
     color: #ffc107;
 }
+.POSTDETAILS .global-post .content-area .col-12 .row  .comments-counter-area .modal-body{
+    max-height: 75vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
 .POSTDETAILS .global-post .content-area .col-12 .row  .comments-counter-area .show-user-like-area:hover{
     background: #f2f2f2;
     cursor: pointer;
@@ -506,7 +521,7 @@ label:focus,
     height: 83vh;
 }
 .SEARCH .col-12 .search-area-body .show-content-area .main-area:hover{
-    background: #f2f2f2;
+    background: #f8f9fa;
 }
 .SEARCH .col-12 .search-area-body .show-content-area .col-12 img{
     height: 70px;
@@ -522,8 +537,14 @@ label:focus,
     font-size: 11px;
     color: #279EFF;
 }
-
-
+.SEARCH .col-12 .search-area-body .show-content-area  .col-12 .remove-result i{
+    font-size: 12px;
+    font-weight: 400;
+    color:#fff;
+}
+.SEARCH .col-12 .search-area-body .show-content-area .main-area:hover .remove-result i{
+    color: #000;
+}
 /* -----------------MYPOSTS PAGE----------------- */
 .MYPOSTS .row .col-12 .card img{
     height: 200px;
@@ -783,10 +804,12 @@ label:focus,
 }
 .PANELOPTIONS .row .col-12 nav .nav-tabs .nav-link{
     color: #000;
-    border: 1px solid #fff;
+    border: 1px solid #eee;
+    border-radius: 5px;
 }
 .PANELOPTIONS .row .col-12 nav .nav-tabs .nav-link:hover{
-    border: 1px solid #fff;
+    background:#eee;
+    color: #ffc107;
 }
 .PANELOPTIONS .row .col-12 nav .nav-tabs .active{
     background: #f2f2f2;
@@ -854,7 +877,28 @@ label:focus,
 }
 
 /* ----------------- DASHBOARD PAGE----------------- */
-
+@media only screen and (max-width: 768px){
+    .DASHBOARD .row .left-side .top .col-3 .card-container .text-card-area{
+        background: red;
+        display: none;
+    }
+}
+@media only screen and (max-width: 992px){
+    .DASHBOARD .row .left-side .top .col-3 .card-container .text-card-area-last{
+        background: red;
+        display: none;
+    }
+}
+.DASHBOARD .row .right-side .col-12 .post-most-liked img{
+    height: 200px;
+    width: 100%;
+}
+.DASHBOARD .row .right-side .col-12{
+    background: #f8f9fa;
+}
+.DASHBOARD .row .right-side .col-12 .post-most-liked .post-creator-info{
+    font-size: 13px;
+}
 
 /* -----------------USERSETTINGS PAGE----------------- */
 .USERSETTINGS .container .title-area h3{
@@ -949,3 +993,24 @@ label:focus,
     color: #279EFF;
 }
 /* -----------------CREATEFEEDBACK PAGE----------------- */
+
+
+/* -----------------UDERDETAILS PAGE----------------- */
+.UDERDETAILS .row  .categories-area{
+    background: #f2f2f2;
+    border-radius: 3px;
+}
+.UDERDETAILS .row .col-12 .card .user-img-area{
+    background-image: url('./images/bg_default_user.webp');
+    background-size: cover;
+    height: 150px;
+    border-radius: 5px 5px 0px 0px;
+}
+.UDERDETAILS .row .col-12 .card .user-img-area img{
+    height: 100px;
+    width: 100px;
+    max-width: 100px;
+}
+.UDERDETAILS .row .col-12 .card-body p{
+    font-size: 13px;
+}

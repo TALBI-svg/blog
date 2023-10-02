@@ -57,7 +57,7 @@ if(isset($_SESSION['id'])){
                 <div class="row d-flex justify-content-between">
                     <div class="col-12 col-md-8 col-lg-5">
                         <h1 class="User-info-area px-3">
-                        <?php echo ucfirst($username);?>
+                            <?php echo ucfirst($username);?>
                         </h1>
                         <div class="User-info-area-credentials px-3">
                             <p class="badge text text-dark rounded-pill text-bg-warning"><?php echo ucfirst($firstname);?></p>
@@ -85,8 +85,8 @@ if(isset($_SESSION['id'])){
                         <div class="User-info-area-address options-bar px-3">
                             <a class="btn badge text text-dark p-2 rounded-pill border-0 text-bg-warning" href="create_post.php"><i class="fa-solid fa-circle-plus"></i> Create Post</a>
                             <a class="btn badge text text-dark p-2 rounded-pill border-0 text-bg-warning" href="my_posts.php"><i class="fa-solid fa-newspaper"></i> My Posts</a>
-                            <a class="btn badge text text-dark p-2 rounded-pill border-0 text-bg-warning" href="#">Followers <span class="fw-normal">2</span></a>
-                            <a class="btn badge text text-dark p-2 rounded-pill border-0 text-bg-warning mt-2" href="#">Following <span class="fw-normal">15</span></a>
+                            <a class="btn badge text text-dark p-2 rounded-pill border-0 text-bg-warning" href="#">Followers <span class="fw-bold">2</span></a>
+                            <a class="btn badge text text-dark p-2 rounded-pill border-0 text-bg-warning mt-2" href="#">Following <span class="fw-bold">15</span></a>
                             <a class="btn badge text text-dark p-2 rounded-pill border-0 text-bg-warning mt-2" href="user_settings.php"><i class="fa-solid fa-gear"></i> Settings</a>
                         </div>
                     </div>
@@ -264,18 +264,28 @@ if(isset($_SESSION['id'])){
                                             <div class='comments-area pt-1 p-2 rounded'>
                                                 <div class='comments-title-area d-flex justify-content-between align-items-start'>
                                                     <p class='m-0'><?php echo $comment_owner;?></p>
-                                                    <div class='dropdown m-0 p-0'>
+                                                    <!-- <div class='dropdown m-0 p-0'>
                                                       <a class='show-more-btn' href='#' data-bs-toggle='dropdown' aria-expanded='false'><i class='fa-solid fa-ellipsis text text-dark'></i></a>      
                                                       <ul class='dropdown-menu'>
                                                         <li><a class='dropdown-item' href='#'>Action</a></li>
                                                         <li><a class='dropdown-item' href='#'>Another action</a></li>
                                                         <li><a class='dropdown-item' href='#'>Something else here</a></li>
                                                       </ul>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                                 <p class='mb-1 fw-normal comment-content-area'><?php echo $comment_content;?></p>
                                                 <p class='m-0 fw-light comment-date-area'><?php echo $comment_date;?></p>
-                                                <span><a class="nav-link text text-center mt-1 show-more-comments" href='post_details.php?post_id=<?php echo $post_id;?>'>show more comments</a></span>
+                                                <?php 
+                                                if($comment_nbr>1){
+                                                    // echo "more then one comment";
+                                                    ?>
+                                                    <span><a class="nav-link text text-center mt-1 show-more-comments" href='post_details.php?post_id=<?php echo $post_id;?>'>show more comments</a></span>
+                                                    <?php
+                                                }else{
+                                                    // echo "one comment";
+                                                }
+                                                ?>
+                                                
                                             </div>
                                         </div>
                                         <?php

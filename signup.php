@@ -6,13 +6,6 @@ include_once 'resources/utilities.php';
 if(isset($_POST['signupBtn'])){
     $form_errors=array();
     $required_fields=array('username','email','firstname','lastname','password');
-
-    // foreach($required_fields as $required_field){
-    //     if(!isset($_POST[$required_field]) or $_POST[$required_field] ==null){
-    //         $form_errors[]=$required_field.' is required !';
-    //     }
-    // }
-
     $form_errors=array_merge($form_errors,check_empty_fields($required_fields));
 
     $fields_to_check_length=array('username'=>4,'firstname'=>4,'lastname'=>4,'password'=>8);
@@ -26,16 +19,12 @@ if(isset($_POST['signupBtn'])){
     $lastname=$_POST['lastname'];
     $password=$_POST['password'];
 
-    // if(checkDuplicateUsername($username, $connection)){
-    //     $result=falshMessage('username already taken!');
-    // }
     if(checkDuplicateField('users','username',$username, $connection)){
         $result=falshMessage('username already taken try an other one!');
     }
     elseif(checkDuplicateField('users','email',$email, $connection)){
         $result=falshMessage('email already taken taken try an other one!');
     }
-
     elseif(checkDuplicateField('admins','username_admin',$username, $connection)){
       $result=falshMessage('Username_admin already taken try an other one!');
     }
@@ -43,7 +32,6 @@ if(isset($_POST['signupBtn'])){
         $result=falshMessage('Email_admin already taken taken try an other one!');
     }
     elseif(empty($form_errors)){
-
         $hashed_password=password_hash($password, PASSWORD_DEFAULT);
 
         $admin=strtolower($email);
@@ -61,25 +49,20 @@ if(isset($_POST['signupBtn'])){
           }catch(PDOException $ex){
               $result=falshMessage('Error Exception '.$ex->getMessage());
           }
-
         }else{
-
           // echo "user";
           try{
-              // if(isset($_POST['username'])){
               $sql="INSERT INTO users (username,email,firstname,lastname,password,created_at) 
                     VALUES (:username,:email,:firstname,:lastname,:password,now() )";
               $statement=$connection->prepare($sql);
               $statement->execute(array(':username'=>$username,':email'=>$email,':firstname'=>$firstname,':lastname'=>$lastname,':password'=>$hashed_password));
               if($statement->rowCount()==1){
-                  // ini_set(header('location: login.php'), 10);
                   $result=falshMessage('Register success','Pass');
                   
                   $origin_password=$hashed_password;
                   $password_owner=$username;
                   addDefaultPassword($connection,$origin_password,$password_owner);
               }
-              // }
           }catch(PDOException $ex){
               $result=falshMessage('Error Exception '.$ex->getMessage());
           }
@@ -89,8 +72,7 @@ if(isset($_POST['signupBtn'])){
             $result=falshMessage('One error in the form');
            
         }else{
-            $result=falshMessage('There were '.count($form_errors).' errors in the form');
-            
+            $result=falshMessage('There were '.count($form_errors).' errors in the form');   
         }
     }
 }

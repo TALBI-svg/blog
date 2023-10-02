@@ -17,7 +17,7 @@ include_once 'resources/utilities.php';
     <link rel="stylesheet" href="assets/style_profile.css">
 </head>
 <body>
-    <div class="container  p-3 px-4 mt-2 MYPOSTS">
+    <div class="container p-3 px-4 mt-2 MYPOSTS">
         <div class='row'>
         <?php
         if(isset($_SESSION['id'])){

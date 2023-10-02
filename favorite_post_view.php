@@ -65,7 +65,7 @@ include_once 'resources/utilities.php';
                         }else{
                             // echo "You don't have favorite posts yet !";
                             ?>
-                            <p class="text text-dark">You don't have favorite posts yet !</p>
+                            <p class="text text-dark">You don't have any favorite posts yet !</p>
                             <?php
                         }
                     }

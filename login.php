@@ -4,13 +4,10 @@ include_once 'resources/session.php';
 include_once 'resources/db.php';
 include_once 'resources/utilities.php';
 
-
-
 if(isset($_POST['loginBtn'])){
     $form_errors=array();
     $required_fields=array('username','password');
     $form_errors=array_merge($form_errors,check_empty_fields($required_fields));
-
 
     if(empty($form_errors)){
         $user=$_POST['username'];
@@ -40,7 +37,6 @@ if(isset($_POST['loginBtn'])){
                     $result=falshMessage('Invalid password or username_admin');
                 }
             }
-
         }else{
             isset($_POST['remember']) ? $remember = $_POST['remember'] : $remember="";
             // check if user exists in database 
@@ -72,22 +68,15 @@ if(isset($_POST['loginBtn'])){
                 }
             }
         }
-        
-        
     }else{
         if(count($form_errors) ==1){
             $result=falshMessage('One error in the form');
-
         }else{
             $result=falshMessage('There were '.count($form_errors).' errors in the form');
-
         }
     }
 }
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

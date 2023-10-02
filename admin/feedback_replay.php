@@ -80,7 +80,6 @@ if(isset($_SESSION['admin_id'])){
             }
         }
     }
-
 }else{
     header("location: ../login.php");
 }
@@ -97,7 +96,7 @@ if(isset($_SESSION['admin_id'])){
 <div class="container CREATEFEEDBACK">
        <div class="container">
             <div class="row title-area mt-3 mb-2">
-                <h3 class="d-flex align-items-center"><a class="nav-link pe-2" href="panel_options.php">Feedback</a> > <a class="nav-link px-2" href="feedback_replay.php">Feedback Replay</a></h3>
+                <h3 class="d-flex align-items-center"><a class="nav-link pe-2" href="panel_options.php">Feedback</a> > <span class="nav-link px-2">Feedback Replay</span></h3>
             </div> 
             <div class="row">
                 <div class="col-12 col-md-4 col-lg-3">

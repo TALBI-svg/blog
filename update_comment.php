@@ -33,7 +33,7 @@ if($_SESSION['id']){
         }
     }
 
-    $comment=$_POST['comment'];
+    $comment=strip_tags($_POST['comment']);
     $comment_id_hidden=$_POST['comment_id_hidden'];
     $comment_owner=getComment_owner($connection,$comment_id_hidden,$username);
 

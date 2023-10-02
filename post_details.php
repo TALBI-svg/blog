@@ -392,10 +392,10 @@ include_once 'resources/utilities.php';
                                         // check is comment 'url' or 'string'
                                         $comment_content;
                                         if (filter_var($comment, FILTER_VALIDATE_URL)) {
-                                            $url_comment="<a href=".$comment.">sheered url</a>";
-                                            $comment_content=$url_comment;
+                                            $url_comment="<a href=".$comment.">check url</a>";
+                                            $comment_content=trim($url_comment);
                                         } else {
-                                            $comment_content=$comment;
+                                            $comment_content=trim($comment);
                                         }
                                         $comment_date=strftime("%b %d, %Y | %H : %M", strtotime($res['comment_time']));
 
@@ -478,7 +478,7 @@ include_once 'resources/utilities.php';
                                     <div class='col-12 col-md-12 col-lg-12 update-comment-area py-3'>
                                         <form action='update_comment.php' method='POST' class='d-flex justify-content-between align-items-center' autocomplete='off'>
                                             <div class='col-6 col-md-6 col-lg-6'>
-                                                <input type='text' name='comment' value='<?php echo $comment_text;?>' class='form-control comment-content' placeholder='Add your comment here'>
+                                                <input type='text' name='comment' value='<?php echo $comment_text;?>' class='form-control comment-content' placeholder='Update your comment here'>
                                                 <input type='text' name='comment_id_hidden' hidden value='<?php echo $comment_id;?>' class='form-control'>
                                             </div>
                                             <button type='submit' name='updateCmtBtn' class='signupBtn btn btn-warning'>Update</button>

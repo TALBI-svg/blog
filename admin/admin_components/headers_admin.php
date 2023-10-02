@@ -58,7 +58,9 @@ if(isset($_SESSION['admin_id'])){
                 <div class="d-flex justify-content-end ms-auto align-items-center">
                   <!-- push notification -->
                   
-                  <a href="#" class="add-post-area nav-link me-3 d-flex justify-content-center rounded-circle align-items-center"><i class="fa-solid fa-plus"></i></a>
+                  <a href='notifications_admin.php' class='add-post-area nav-link me-0 d-flex justify-content-center rounded-circle align-items-center'><i class='fa-regular fa-bell'></i></a>    
+                  <span class='noti-area rounded-circle d-flex justify-content-center align-items-center'>4</span> 
+                  <a href="create_user.php" class="add-post-area nav-link me-3 d-flex justify-content-center rounded-circle align-items-center"><i class="fa-solid fa-plus"></i></a>
                   <a class="profile-link-area" href="profile_admin.php"><img class="img-user-properties rounded-circle me-2" src="<?php if(isset($profile_image)) echo $profile_image;?>"></a>
                   <a class="signupBtn btn btn-danger" href="../logout.php">logout</a>
                 </div>

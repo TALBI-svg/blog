@@ -21,16 +21,6 @@ function check_min_length($fields_to_check_length){
     return $form_errors;
 }
 
-// function check_max_length($fields_to_check_length){
-//     $form_errors=[];
-//     foreach($fields_to_check_length as $field_name=>$minimum_length_required){
-//         if(strlen(trim($_POST[$field_name])) >$minimum_length_required){
-//             $form_errors[]=$field_name.' is too long, must be '.$minimum_length_required.' characters max long';
-//         }
-//     }
-//     return $form_errors;
-// }
-
 function check_email($data){
     $form_errors=[];
     $key='email';
@@ -66,21 +56,6 @@ function falshMessage($message, $passOrFail=''){
 function redirect($page){
     header("Location: {$page}.php");
 }
-
-// function checkDuplicateUsername($value, $connection){
-//     try {
-//         $sql='SELECT username FROM users WHERE username = :username';
-//         $statement=$connection->prepare($sql);
-//         $statement->execute(array(':username'=>$value));
-
-//         if($row= $statement->fetch()){
-//             return true;
-//         }
-//         return false;
-//     } catch (PDOExecption $ex) {
-//         //handle exception
-//     }
-// }
 
 function checkDuplicateField($table, $column_name, $value, $connection){
     try {

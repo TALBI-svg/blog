@@ -1,8 +1,5 @@
 <?php
 include_once 'admin_components/headers_admin.php';
-// include_once '../resources/session.php';
-// include_once '../resources/db.php';
-// include_once '../resources/utilities.php';
 
 
 if(isset($_SESSION['admin_id'])){
@@ -57,11 +54,11 @@ if(isset($_SESSION['admin_id'])){
                 <img class="img-user-properties rounded-circle" src="<?php if(isset($profile_image)) echo $profile_image;?>">
                 <a href="#"><img class="img-edit-properties rounded-circle" src="../assets/images/edit.webp"></a>
                 <div class="row d-flex justify-content-between">
-                    <div class="col-12 col-md-8 col-lg-4">
+                    <div class="col-12 col-md-8 col-lg-5">
                         <h1 class="User-info-area px-3"><?php echo ucfirst($username_admin)?></h1>
                         <div class="User-info-area-credentials px-3">
-                            <p class="badge text text-white rounded-pill text-bg-warning"><?php echo ucfirst($firstname);?></p>
-                            <p class="badge text text-white rounded-pill text-bg-warning ms-2"><?php echo ucfirst($lastname);?></p>
+                            <p class="badge text text-dark rounded-pill text-bg-warning"><?php echo ucfirst($firstname);?></p>
+                            <p class="badge text text-dark rounded-pill text-bg-warning ms-2"><?php echo ucfirst($lastname);?></p>
                         </div>
                         <div class="User-info-area-description px-3">
                             <p class="">Title</p>
@@ -70,10 +67,10 @@ if(isset($_SESSION['admin_id'])){
                             <p>Address <a href="#">More info</a> <br>Email: <?php echo $email;?><br>Joined date: <?php echo $join_date;?></p>
                         </div>
                         <div class="User-info-area-address options-bar px-3">
-                            <a class="btn badge text text-white p-2 rounded-pill text-bg-dark" href="#"><i class="fa-solid fa-user-plus"></i> Create User</a>
-                            <a class="btn badge text text-white p-2 rounded-pill text-bg-dark" href="#"><i class="fa-solid fa-chart-pie"></i> My Statics</a>
-                            <a class="btn badge text text-white p-2 rounded-pill text-bg-dark" href="#"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
-                            <a class="btn badge text text-white p-2 rounded-pill text-bg-dark mt-2" href="#"><i class="fa-solid fa-key"></i> Edit Password</a>
+                            <a class="btn badge text text-dark p-2 rounded-pill bg-warning" href="create_user.php"><i class="fa-solid fa-user-plus"></i> Create User</a>
+                            <a class="btn badge text text-dark p-2 rounded-pill bg-warning" href="#"><i class="fa-solid fa-chart-pie"></i> My Statics</a>
+                            <a class="btn badge text text-dark p-2 rounded-pill bg-warning" href="#"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
+                            <a class="btn badge text text-dark p-2 rounded-pill bg-warning mt-2" href="reset_password_admin.php"><i class="fa-solid fa-key"></i> Edit Password</a>
                         </div>
                     </div>
                 </div>

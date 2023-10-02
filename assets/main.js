@@ -1,13 +1,39 @@
 // "my_posts.php" deletePost alert message 
-let deleteAlert=document.querySelectorAll('.deleteBtn')
-deleteAlert.forEach(function (ele){
-    let element=ele
-    element.addEventListener('click', function(){
-        let state=confirm('Are you sur to delete this post')
+let deletePost=document.querySelectorAll('.deleteBtn')
+deletePost.forEach(function (ele){
+    ele.addEventListener('click', function(){
+        let state=confirm('Are you sur to delete this post ?')
         if(state == true){
-            element.href
+            ele.href
         }else{
-            element.href='my_posts.php'
+            ele.href='my_posts.php'
+        }
+    })
+});
+
+// "panel_options.php" deleteUser alert message 
+let deleteUser=document.querySelectorAll('#deleteUserBtn')
+deleteUser.forEach(function (ele){
+    ele.addEventListener('click', function(){
+        let state=confirm('Are you sur to delete this user ?')
+        if(state === true){
+            ele.href
+        }else{
+            ele.href='panel_options.php'
+        }
+    })
+});
+
+
+// "panel_options.php" defaultPassword alert message 
+let defaultPassword=document.querySelectorAll('#defaultPasswordBtn')
+defaultPassword.forEach(function (ele){
+    ele.addEventListener('click', function(){
+        let state=confirm('Are you sur to set default password for this user ?')
+        if(state == true){
+            ele.href
+        }else{
+            ele.href='panel_options.php'
         }
     })
 });

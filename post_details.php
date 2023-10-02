@@ -22,111 +22,132 @@ include_once 'resources/utilities.php';
             <?php
                 if($_SERVER['REQUEST_METHOD'] === "GET"){
                     $post_id=$_GET['post_id'];
-                    $sql="SELECT * FROM posts WHERE id='$post_id'";
-                    $statement=$connection->query($sql);
-                    if(!$statement){
-                        die("invalide query".$connection->error);
-                    }
-                    while($res=$statement->fetch()){
-                        $title=$res['title'];
-                        $user_post=$res['user_post'];
-                        $default="default_user.webp";
-                        $date_create=$date=strftime("%b %d, %Y", strtotime($res['date_create']));
-                        $image_post=$res['image'];
-                        $description=$res['description'];
-                        $category=$res['category'];
 
-                        $user_post_image=$res['user_post_image'];
-                        $default="assets/images/default_user.webp";
-                        
-                        $profile_image=setDefaultImage($user_post_image,$default);
-                        ?>
-                        <div class='row'>
-                        <div class='col-12 col-md-10 col-lg-6 m-auto p-0'>
-                            <p class='title-area fw-bold fs-1 px-1'><?php echo $title; ?></p>
-                            <div class='mb-3'>
-                              <input type='text' hidden name='post_id' value='<?php echo $post_id;?>'>
-                            </div>
-                        </div>
-                        </div>
-                        
-                        <div class='row post-owner-area d-flex justify-content-center p-0'>
-                            <div class='col-12 col-md-10 col-lg-6 p-0'>
-                                <div class='row'>
-                                    <div class='container'>
+                    if($post_id!=null){
+                        // echo "ok";
 
-                                        <!-- check which profile we have to redirect to on based on if user loged on or not? -->
-                                        <?php 
-                                        if(isset($_SESSION['username'])){
-                                            $user_loged=$_SESSION['username'];
-
-                                            if($user_loged===$user_post){
-                                                ?>
-                                                <a href='profile.php' class='col-12 col-md-4 col-lg-3 d-flex justify-content-start align-items-center nav-link'>
-                                                    <img src='<?php echo $profile_image;?>' class='card-img-top rounded-circle' alt=''>
-                                                    <div class='container'>
-                                                        <div class='row ps-2'>
-                                                            <div class='col-12 col-md-12 col-lg-12 p-0'>
-                                                                <span class='p-0 fw-bold'><?php echo ucfirst($user_post);?></span><br>
-                                                                <span class='date-time p-0 fw-ligh'><?php echo $date_create;?></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <?php
-                                            }else{
-                                                ?>
-                                                <a href='profile_guest.php?guest_user=<?php echo $user_post;?>' class='col-12 col-md-4 col-lg-3 d-flex justify-content-start align-items-center nav-link'>
-                                                    <img src='<?php echo $profile_image;?>' class='card-img-top rounded-circle' alt=''>
-                                                    <div class='container'>
-                                                        <div class='row ps-2'>
-                                                            <div class='col-12 col-md-12 col-lg-12 p-0'>
-                                                                <span class='p-0 fw-bold'><?php echo $user_post;?></span><br>
-                                                                <span class='date-time p-0 fw-ligh'><?php echo $date_create;?></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <?php
-                                            }
-                                        }else{
-                                            ?>
-                                            <a href='login.php' class='col-12 col-md-4 col-lg-3 d-flex justify-content-start align-items-center nav-link'>
-                                                <img src='<?php echo $profile_image;?>' class='card-img-top rounded-circle' alt=''>
+                        // check if post_id exist in db 
+                        $sql="SELECT COUNT(*) AS isPostIdExist FROM posts WHERE id='$post_id'";
+                        $statement=$connection->query($sql);
+                        if(!$statement){
+                            die("invalid query!").$connection->getMessage();
+                        }
+                        while($res=$statement->fetch()){
+                            $isPostIdExist=$res['isPostIdExist'];
+                            if($isPostIdExist>0){
+                                // echo "ok";
+                                $sql="SELECT * FROM posts WHERE id='$post_id'";
+                                $statement=$connection->query($sql);
+                                if(!$statement){
+                                    die("invalide query".$connection->error);
+                                }
+                                while($res=$statement->fetch()){
+                                    $title=$res['title'];
+                                    $user_post=$res['user_post'];
+                                    $default="default_user.webp";
+                                    $date_create=$date=strftime("%b %d, %Y", strtotime($res['date_create']));
+                                    $image_post=$res['image'];
+                                    $description=$res['description'];
+                                    $category=$res['category'];
+                                    $user_post_image=$res['user_post_image'];
+                                    $default="assets/images/default_user.webp";
+                                    
+                                    $profile_image=setDefaultImage($user_post_image,$default);
+                                    ?>
+                                    <div class='row'>
+                                    <div class='col-12 col-md-10 col-lg-6 m-auto p-0'>
+                                        <p class='title-area fw-bold fs-1 px-1'><?php echo $title; ?></p>
+                                        <div class='mb-3'>
+                                          <input type='text' hidden name='post_id' value='<?php echo $post_id;?>'>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
+                                    <div class='row post-owner-area d-flex justify-content-center p-0'>
+                                        <div class='col-12 col-md-10 col-lg-6 p-0'>
+                                            <div class='row'>
                                                 <div class='container'>
-                                                    <div class='row ps-2'>
-                                                        <div class='col-12 col-md-12 col-lg-12 p-0'>
-                                                            <span class='p-0 fw-bold'><?php echo $user_post;?></span><br>
-                                                            <span class='date-time p-0 fw-ligh'><?php echo $date_create;?></span>
-                                                        </div>
-                                                    </div>
+                                                    <!-- check which profile we have to redirect to on based on if user loged on or not? -->
+                                                    <?php 
+                                                    if(isset($_SESSION['username'])){
+                                                        $user_loged=$_SESSION['username'];
+                                                        if($user_loged===$user_post){
+                                                            ?>
+                                                            <a href='profile.php' class='col-12 col-md-4 col-lg-3 d-flex justify-content-start align-items-center nav-link'>
+                                                                <img src='<?php echo $profile_image;?>' class='card-img-top rounded-circle' alt=''>
+                                                                <div class='container'>
+                                                                    <div class='row ps-2'>
+                                                                        <div class='col-12 col-md-12 col-lg-12 p-0'>
+                                                                            <span class='p-0 fw-bold'><?php echo ucfirst($user_post);?></span><br>
+                                                                            <span class='date-time p-0 fw-ligh'><?php echo $date_create;?></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <?php
+                                                        }else{
+                                                            ?>
+                                                            <a href='profile_guest.php?guest_user=<?php echo $user_post;?>' class='col-12 col-md-4 col-lg-3 d-flex justify-content-start align-items-center nav-link'>
+                                                                <img src='<?php echo $profile_image;?>' class='card-img-top rounded-circle' alt=''>
+                                                                <div class='container'>
+                                                                    <div class='row ps-2'>
+                                                                        <div class='col-12 col-md-12 col-lg-12 p-0'>
+                                                                            <span class='p-0 fw-bold'><?php echo $user_post;?></span><br>
+                                                                            <span class='date-time p-0 fw-ligh'><?php echo $date_create;?></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <?php
+                                                        }
+                                                    }else{
+                                                        ?>
+                                                        <a href='login.php' class='col-12 col-md-4 col-lg-3 d-flex justify-content-start align-items-center nav-link'>
+                                                            <img src='<?php echo $profile_image;?>' class='card-img-top rounded-circle' alt=''>
+                                                            <div class='container'>
+                                                                <div class='row ps-2'>
+                                                                    <div class='col-12 col-md-12 col-lg-12 p-0'>
+                                                                        <span class='p-0 fw-bold'><?php echo $user_post;?></span><br>
+                                                                        <span class='date-time p-0 fw-ligh'><?php echo $date_create;?></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <?php
+                                                       
+                                                    }
+                                                    ?>
+                                                   
                                                 </div>
-                                            </a>
-                                            <?php
-                                           
-                                        }
-                                        ?>
-                                       
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                       
-                        <div class='row content-area d-flex justify-content-center'>
-                            <div class='col-12 col-md-10 col-lg-6 p-0'>
-                                <img src='assets/images_post/<?php echo $image_post;?>' class='card-img-top img-thumbnail rounded my-3' alt=''>
-                                <p class='px-1'><?php echo $description;?></p>
-                                <div class='row my-5'>
-                                    <div class='col-12 col-md-6 col-lg-6'>
-                                        <span>Category <a href='#' class='text text-dark'><span class='category-area p-3 py-2 fw-bold'><?php echo $category;?></span></a></span>
-                                    </div>
-                                </div>
-                            <?php
+                                   
+                                    <div class='row content-area d-flex justify-content-center'>
+                                        <div class='col-12 col-md-10 col-lg-6 p-0'>
+                                            <img src='assets/images_post/<?php echo $image_post;?>' class='card-img-top img-thumbnail rounded my-3' alt=''>
+                                            <p class='px-1'><?php echo $description;?></p>
+                                            <div class='row my-5'>
+                                                <div class='col-12 col-md-6 col-lg-6'>
+                                                    <span>Category <a href='#' class='text text-dark'><span class='category-area p-3 py-2 fw-bold'><?php echo $category;?></span></a></span>
+                                                </div>
+                                            </div>
+                                        <?php
+                                }
+                            }else{
+                                // echo "post not exist!";
+                                header("location: index.php");
+                            }
+                        }
+
+                    }else{
+                        // echo "post not exist!";
+                        header("location: index.php");
                     }
+                    
                 }
             ?>
-        
-                        
+            
                     <!-- show count like-comment-shear-area  -->
                     <?php
                         if($_SERVER['REQUEST_METHOD'] === "GET"){
@@ -489,6 +510,7 @@ include_once 'resources/utilities.php';
                                 }
                                 }
                             ?>
+
                         </div>
                     </div>
                 </div>

@@ -38,7 +38,20 @@ defaultPassword.forEach(function (ele){
     })
 });
 
+// "panel_options.php" posts section deletePost alert message 
+let deletePost_admin=document.querySelectorAll('#deletePost_adminBtn')
+deletePost_admin.forEach(function (ele){
+    ele.addEventListener('click', function(){
+        let state=confirm('Are you sur to delete this post definitelly ?')
+        if(state == true){
+            ele.href
+        }else{
+            ele.href='panel_options.php'
+        }
+    })
+});
 
+// "post_details.php" updateComment alert message 
 let updateBtn=document.querySelectorAll('#update_comment')
 updateBtn.forEach(function (ele){
     ele.addEventListener('click',function(e){

@@ -875,51 +875,7 @@ label:focus,
     font-size: 13px;
     font-style: italic;
 }
-/* posts */
-.PANELOPTIONS .posts-area .row .col-12 .col-12{
-    overflow: hidden;
-    overflow-y: scroll;
-    height: 90vh;
-    max-height: 90vh;
-}
-.PANELOPTIONS .posts-area .row .col-12 .col-12 .post-area:hover{
-    background: #f2f2f2;
-    cursor: pointer;
-}
-.PANELOPTIONS .posts-area .row .col-12 .col-12 .post-area .top .title{
-    font-weight: normal;
-    font-size: 15px;
-}
-.PANELOPTIONS .posts-area .row .col-12 .col-12 .post-area .top .post-info .post-owner-area .left img{
-    height: 30px;
-    width: 30px;
-    max-width: 30px;    
-}
-.PANELOPTIONS .posts-area .row .col-12 .col-12 .post-area .top .post-info .post-owner-area .row .top p{
-    font-size: 12px;
-} 
-.PANELOPTIONS .posts-area .row .col-12 .col-12 .post-area .top .post-info .post-owner-area .row .bottom p{
-    font-size: 12px;
-}
 
-.PANELOPTIONS .posts-area .row .col-12 .col-12 .post-area .top .post-info .more .dropdown a i{
-    font-size: 12px;
-}
-.PANELOPTIONS .posts-area .row .col-12 .col-12 .post-area .top .img-area img{
-    height: 150px;
-    width: 95%;
-    max-width: 95%;
-    background-size: cover;
-}
-.PANELOPTIONS .posts-area .row .col-12 .col-12 .post-area .top .post-description p{
-    font-size: 12px;
-}
-.PANELOPTIONS .posts-area .row .col-12 .col-12 .post-area .top .category-area p,span{
-    font-size: 12px;
-}
-.PANELOPTIONS .posts-area .row .col-12 .col-12 .post-area .top .category-area p span{
-    background: #f2f2f2;
-}
 /* ----------------- DASHBOARD PAGE----------------- */
 @media only screen and (max-width: 768px){
     .DASHBOARD .row .left-side .top .col-3 .card-container .text-card-area{

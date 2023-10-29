@@ -96,8 +96,8 @@ include_once 'resources/utilities.php';
                         <?php
                     }
                 ?>
-                            <a class="btn badge p-2 px-3 rounded-pill text-bg-warning" href="#">Followers <span class="fw-bold">10</span></a>
-                            <a class="btn badge p-2 px-3 rounded-pill text-bg-warning" href="#">Following <span class="fw-bold">15</span></a>
+                            <a class="btn badge p-2 px-3 rounded-pill text-bg-warning" href="#">Follow</a>
+                            <!-- <a class="btn badge p-2 px-3 rounded-pill text-bg-warning" href="#">Following <span class="fw-bold">15</span></a> -->
                             <!-- <a class="btn badge text text-white p-2 rounded-pill text-bg-primary password-view" href="#"><i class="fa-solid fa-lock"></i> Edit Password</a> -->
                         </div>
                     </div>

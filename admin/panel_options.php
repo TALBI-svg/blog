@@ -37,8 +37,8 @@ include_once 'admin_components/headers_admin.php';
             <div class="col-12 col-md-10 col-lg-10 content-area">
               <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade" id="nav-users" role="tabpanel" aria-labelledby="nav-users-tab" tabindex="0">
-                    <div class="table-responsive hideTable">
-                        <table class="table border">
+                    <div class="table-responsive hideTable rounded border border-bottom-0 ">
+                        <table class="table p-0 m-0">
                             <thead>
                                 <tr class="">
                                     <th>id</th>

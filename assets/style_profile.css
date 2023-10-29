@@ -748,6 +748,12 @@ label:focus,
 /* -----------------NOTIFICATIONS PAGE----------------- */
 .NOTIFICATIONS .container .title-area h3{
     color: #000;
+} 
+.NOTIFICATIONS .container .content-area{
+    overflow: hidden;
+    max-height: 86vh;
+    height: 86vh;
+    overflow-y: scroll;
 }
 /* noti not readed */
 .NOTIFICATIONS .container .row .col-12 .not-readed{

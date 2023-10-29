@@ -19,6 +19,7 @@ include_once 'resources/utilities.php';
             <div class="row title-area mt-3 mb-2">
                 <h3>Notifications</h3>
             </div>
+            <div class="content-area">
             <?php
             if(isset($_SESSION['id'])){
               $id=$_SESSION['id'];
@@ -137,8 +138,11 @@ include_once 'resources/utilities.php';
                   echo "You don't have any notification yet!";
                 }
               }
+            }else{
+              header("location: login.php");
             }
             ?>
+            </div>
             
         </div>
     </div>

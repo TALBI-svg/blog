@@ -130,3 +130,4 @@ create table search_history(
   search_owner VARCHAR(100),
   FOREIGN KEY (search_owner) REFERENCES users(username) ON DELETE CASCADE
 );
+
